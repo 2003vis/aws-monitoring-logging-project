@@ -1,19 +1,50 @@
-# aws-monitoring-logging-project
-This project demonstrates real-time monitoring of an EC2 instance using CloudWatch alarms and automated email alerts using SNS. CloudTrail is enabled for logging AWS activities.
+# AWS Monitoring & Logging System
 
-Architecture
+This project simulates a real-world cloud monitoring setup using AWS services.
+An EC2 instance is monitored using CloudWatch alarms. When CPU utilization exceeds a defined threshold, an automated email notification is triggered via SNS. CloudTrail is enabled to log all account activities for auditing and security.
 
-Step 1 – Launch EC2 Instance
-Created an Ubuntu EC2 instance and configured security groups.
+# Architecture Diagram
+AWS Services Used
 
-Step 2 – Install Apache Web Server
-Installed Apache and verified it using public IP.
+Amazon EC2 – Virtual Server
 
-Step 3 – Configure SNS Email Alert
-Created SNS topic and email subscription for alert notifications.
+Amazon CloudWatch – Monitoring & Metrics
 
-Step 4 – Create CloudWatch Alarm
-Configured CPUUtilization alarm with threshold > 36% and attached SNS topic.
+Amazon SNS – Email Notifications
 
-Step 5 – Enable CloudTrail
-Enabled CloudTrail to log all account activities.
+AWS CloudTrail – Activity Logging
+
+# Implementation Steps
+EC2 Instance Setup
+
+Launched Ubuntu EC2 instance (t2.micro)
+
+Configured security groups (SSH & HTTP)
+
+Installed Apache Web Server
+
+SNS Email Configuration
+Created SNS topic: CPU-Alert-Topic
+
+Subscribed email endpoint
+
+Confirmed email subscription
+
+CloudWatch Alarm Setup
+
+Selected EC2 → CPUUtilization metric
+
+Set threshold: Greater than 36%
+
+Attached SNS topic for notifications
+
+# Troubleshooting Scenario
+Checked CloudWatch metrics
+
+Logged into EC2 via SSH
+
+Used top command to identify high resource process
+
+Terminated stress process
+
+Verified CPU returned to normal
